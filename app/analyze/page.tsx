@@ -55,7 +55,7 @@ function EmptyState() {
       <div>
         <p className="font-semibold text-text-primary text-base">Results will appear here</p>
         <p className="text-text-muted text-sm mt-1 max-w-[240px]">
-          Fill in the form on the left and click "Get alignment score".
+          Fill in the form on the left and click &quot;Get alignment score&quot;.
         </p>
       </div>
     </div>

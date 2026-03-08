@@ -240,7 +240,7 @@ export default function HomePage() {
                 className="text-lg text-text-secondary leading-relaxed max-w-lg"
                 {...fadeUp(0.17)}
               >
-                Get an AI-powered fit score for any job, discover the keywords you're missing, and find
+                Get an AI-powered fit score for any job, discover the keywords you&apos;re missing, and find
                 roles that actually match your profile — all in under 10 seconds.
               </motion.p>
 
