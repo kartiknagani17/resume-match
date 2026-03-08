@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #fff;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.55);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   HERO SECTION BACKGROUND
+   ============================================ */
+.hero-bg {
+  background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 70%);
+}
+
+/* Subtle dot-grid pattern (optional, very faint) */
+.hero-dots {
+  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+}
+
+/* ============================================
+   SKELETON LOADER
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #F1F5F9 0%,
+    #E2E8F0 50%,
+    #F1F5F9 100%
+  );
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.8s linear infinite;
+  border-radius: 6px;
+}
+
+@keyframes sk-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ============================================
+   CARD
+   ============================================ */
+.card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 6px 20px rgba(0,0,0,0.09);
+  transform: translateY(-2px);
+}
+
+.card-accent:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.12), 0 6px 20px rgba(37,99,235,0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   BUTTON
+   ============================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  background: #2563EB;
+  color: #fff;
+  border: none;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #1D4ED8;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(37,99,235,0.25);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  background: transparent;
+  color: #0F172A;
+  border: 1.5px solid #E2E8F0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active { transform: translateY(0); }
+
+/* ============================================
+   UPLOAD ZONE
+   ============================================ */
+.upload-zone {
+  border: 2px dashed #E2E8F0;
+  border-radius: 14px;
+  background: #FAFBFC;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upload-zone:hover,
+.upload-zone.upload-hover {
+  border-color: #BFDBFE;
+  background: #EFF6FF;
+}
+
+.upload-zone.upload-drag {
+  border-color: #2563EB;
+  background: #EFF6FF;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+.upload-zone.upload-filled {
+  border-style: solid;
+  border-color: #BFDBFE;
+  background: #EFF6FF;
+}
+
+/* ============================================
+   SCORE RING
+   ============================================ */
+.score-ring-great { filter: drop-shadow(0 2px 8px rgba(22,163,74,0.3)); }
+.score-ring-good  { filter: drop-shadow(0 2px 8px rgba(37,99,235,0.3)); }
+.score-ring-okay  { filter: drop-shadow(0 2px 8px rgba(202,138,4,0.3)); }
+.score-ring-low   { filter: drop-shadow(0 2px 8px rgba(220,38,38,0.3)); }
+
+/* ============================================
+   NAV
+   ============================================ */
+.nav-scrolled {
+  box-shadow: 0 1px 0 #E2E8F0, 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ============================================
+   INPUT / TEXTAREA
+   ============================================ */
+.field {
+  width: 100%;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  background: #fff;
+  color: #0F172A;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field:focus {
+  outline: none;
+  border-color: #93C5FD;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
+.field::placeholder { color: #94A3B8; }
+
+/* ============================================
+   BADGE / CHIP
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.badge-blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.badge-green {
+  background: #F0FDF4;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.badge-amber {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.badge-red {
+  background: #FEF2F2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+}
+
+/* ============================================
+   ERROR BLOCK
+   ============================================ */
+.error-block {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #B91C1C;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.divider {
+  height: 1px;
+  background: #E2E8F0;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; background: #E2E8F0; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
